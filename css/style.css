@@ -75,6 +75,11 @@ body {
 .main-menu li a {
   display: block;
   padding: 1rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.4s;
+}
+.main-menu li a:hover {
+  border-bottom: 2px solid var(--main-color);
 }
 .global-login {
   position: absolute;
