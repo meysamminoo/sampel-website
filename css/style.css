@@ -3,7 +3,8 @@
   --font-color: #333;
   --white: #fff;
   --main-color: #fac800;
-  --shadow: rgba(0, 0, 0, 0.2);
+  --shadow: rgba(0, 0, 0, 0.075);
+  --primary-color: #f7f7f7;
 }
 /** fonts */
 @font-face {
@@ -61,26 +62,62 @@ body {
 .global-logo img {
   width: 20rem;
 }
+
 .main-menu {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
-.main-menu li {
+.main-menu > li {
+  position: relative;
   margin: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.main-menu li:first-child {
+.main-menu > li i {
+  font-size: 1.2rem;
+}
+.main-menu > li:first-child {
   margin-right: 0;
 }
-.main-menu li a {
+.main-menu > li > a {
   display: block;
   padding: 1rem;
   border-bottom: 2px solid transparent;
   transition: all 0.4s;
 }
-.main-menu li a:hover {
+.main-menu > li > a:hover {
   border-bottom: 2px solid var(--main-color);
 }
+.sub-menu {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 100%;
+  min-width: 20rem;
+  min-height: 10rem;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  text-align: center;
+  display: none;
+}
+.sub-menu li {
+  margin: 2px;
+}
+.sub-menu li a {
+  padding: 1rem;
+  display: block;
+  border-radius: 3px;
+}
+.main-menu li:hover .sub-menu {
+  display: block;
+}
+.sub-menu li a:hover {
+  background-color: var(--main-color);
+}
+
 .global-login {
   position: absolute;
   left: 0;
