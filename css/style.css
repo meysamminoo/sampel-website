@@ -3,7 +3,8 @@
   --font-color: #333;
   --white: #fff;
   --main-color: #fac800;
-  --shadow: rgba(0, 0, 0, 0.075);
+  --shadow-light: rgba(0, 0, 0, 0.075);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
   --primary-color: #f7f7f7;
 }
 /** fonts */
@@ -41,13 +42,35 @@ input {
 body {
   font-size: 1.4rem;
   color: var(--font-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+/* overly */
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--shadow-dark);
+  pointer-events: auto;
+  z-index: 1000;
+  transition: all 0.4s linear;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
 }
 /* header */
 .global-header {
   width: 100%;
   z-index: 999;
   background-color: var(--white);
-  box-shadow: 0 0.125rem 0.25rem var(--shadow);
+  box-shadow: 0 0.125rem 0.25rem var(--shadow-light);
 }
 .wrapper-header {
   width: 90%;
@@ -59,10 +82,12 @@ body {
   align-items: center;
   position: relative;
 }
+/* logo => start */
 .global-logo img {
   width: 20rem;
 }
-
+/* logo => start */
+/*  main menu => start */
 .main-menu {
   display: flex;
   flex-direction: row;
@@ -102,6 +127,7 @@ body {
   border-radius: 3px;
   text-align: center;
   display: none;
+  box-shadow: 0 0.5rem 0.5rem 0.1rem var(--shadow-light);
 }
 .sub-menu li {
   margin: 2px;
@@ -117,7 +143,8 @@ body {
 .sub-menu li a:hover {
   background-color: var(--main-color);
 }
-
+/*  main menu => end */
+/* login button => start */
 .global-login {
   position: absolute;
   left: 0;
@@ -128,8 +155,41 @@ body {
   align-items: center;
   border-radius: 3px;
   cursor: pointer;
-  box-shadow: 0 0.125rem 0.25rem var(--shadow);
+  box-shadow: 0 0.125rem 0.25rem var(--shadow-light);
 }
 .global-login span {
   margin-right: 0.5rem;
 }
+/* login button => end */
+/* popup => start */
+.popup {
+  width: 50rem;
+  height: 50rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem var(--shadow-dark);
+  position: absolute;
+  top: 20%;
+  margin: 0 auto;
+  opacity: 0;
+  display: none;
+  border-radius: 5px;
+  z-index: 1100;
+  transition: all 0.4s linear;
+  background-color: var(--white);
+}
+.popup.active {
+  opacity: 1;
+  display: block;
+}
+.header-popup {
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 5px 5px 0 0;
+}
+.header-popup > i {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+/* popup => end */
