@@ -145,6 +145,19 @@ body {
   background-color: var(--main-color);
 }
 /*  main menu => end */
+/* hamberger menu => start */
+.menu-icon {
+  position: absolute;
+  left: 0;
+  display: none;
+}
+.menu-icon i {
+  font-size: 3.5rem;
+}
+.menu-icon .fa-times {
+  display: none;
+}
+/* hamberger menu => end */
 /* login button => start */
 .global-login {
   position: absolute;
@@ -246,3 +259,16 @@ body {
   width: 100%;
 }
 /* form => end */
+
+/*  Responsive design */
+@media screen and (max-width: 960px) {
+  .global-menu {
+    display: none;
+  }
+  .global-login {
+    display: none;
+  }
+  .menu-icon {
+    display: block;
+  }
+}
