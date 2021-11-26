@@ -238,4 +238,11 @@ body {
   color: red;
   visibility: visible;
 }
+.form-control .btn {
+  background-color: var(--main-color);
+  display: block;
+  border-radius: 3px;
+  padding: 1rem;
+  width: 100%;
+}
 /* form => end */
