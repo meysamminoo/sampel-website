@@ -7,6 +7,7 @@
   --shadow-dark: rgba(0, 0, 0, 0.2);
   --primary-color: #f7f7f7;
   --border-color: #ccc;
+  --dark: #222321;
 }
 /** fonts */
 @font-face {
@@ -52,6 +53,7 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 37.5rem;
   position: relative;
 }
 /* overly */
@@ -61,7 +63,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: var(--shadow-dark);
+  background-color: rgba(0, 0, 0, 0.3);
   pointer-events: auto;
   z-index: 1000;
   transition: all 0.4s linear;
@@ -170,7 +172,7 @@ body {
   left: 0;
   height: 100vh;
   min-height: 100vh;
-  background-color: #222324;
+  background-color: var(--dark);
   width: 30rem;
   padding: 2rem;
   transition: transform 0.4s ease-in-out;
@@ -179,6 +181,84 @@ body {
 #nav.active {
   transform: translateX(0);
 }
+.hamberger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.hamberger-menu > li {
+  position: relative;
+}
+.hamberger-menu > li > a {
+  color: var(--white);
+  font-size: 1.8rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s linear;
+  border-radius: 3px;
+}
+.hamberger-menu > li > a:hover {
+  background-color: var(--font-color);
+}
+.hamberger-menu > li > i {
+  font-size: 1.6rem;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: var(--white);
+  pointer-events: none;
+}
+.search-form {
+  position: relative;
+  margin: 1rem 0;
+}
+.search-field {
+  background-color: var(--font-color);
+  color: var(--white);
+  padding: 1rem 1rem 1rem 5rem;
+  border-radius: 3px;
+  width: 100%;
+}
+.search-submit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  width: 3.8rem;
+  height: 3.8rem;
+  margin: 2px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.search-submit > i {
+  font-size: 1.8rem;
+}
+.sub-menu-hamberger ul {
+  display: none;
+  padding-right: 1rem;
+  margin: 0.5rem 0;
+}
+.sub-menu-hamberger ul.active {
+  display: block;
+}
+.sub-menu-hamberger ul li {
+  border-right: 1px solid var(--border-color);
+}
+.sub-menu-hamberger li a {
+  color: var(--white);
+  font-size: 1.6rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s linear;
+  border-radius: 3px;
+}
+.sub-menu-hamberger li a:hover {
+  background-color: var(--font-color);
+}
+
 /* hamberger menu => end */
 /* login button => start */
 .global-login {
@@ -283,8 +363,11 @@ body {
 /* form => end */
 /* contaiiner => start */
 .container {
-  width: 100%;
+  width: 90%;
   transition: transform 0.4s ease-in-out;
+}
+#slider {
+  padding: 1rem 0;
 }
 
 /* contaiiner => end */

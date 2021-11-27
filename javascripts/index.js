@@ -11,6 +11,7 @@ const closeHamberger = document.getElementById('close-menu');
 const hamberger = document.getElementById('nav');
 const globalHeader = document.querySelector('.global-header');
 const container = document.querySelector('.container');
+const dropdownMenu = document.querySelector('.sub-menu-hamberger');
 
 // ! Add Event Listeners
 loginButton.addEventListener('click', showModal);
@@ -22,7 +23,7 @@ form.addEventListener('submit', function(e){
 })
 openHamberger.addEventListener('click', openHambergerMenu);
 closeHamberger.addEventListener('click', closeHambergerMenu);
-
+dropdownMenu.addEventListener('click',toggleHambergerMenu )
 
 // ! Functions
 // todo: show popup on click login button
@@ -96,4 +97,15 @@ function closeHambergerMenu(){
   document.body.style.overflow = 'visible';
   closeHamberger.style.display = 'none';
   openHamberger.style.display = 'block';
+}
+// todo:
+function toggleHambergerMenu(){
+  const iElement = this.querySelector('i');
+  if( iElement.className === 'fas fa-angle-left'){
+    this.querySelector('i').classList = 'fas fa-angle-down';
+  } else {
+    this.querySelector('i').classList = 'fas fa-angle-left';
+  }
+  const ulElement = this.querySelector('ul');
+  ulElement.classList.toggle('active');
 }

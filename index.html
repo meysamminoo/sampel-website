@@ -64,12 +64,37 @@
     <!-- * global-header => end -->
     <!-- *-hamberger menu => start -->
     <nav id="nav">
-
+      <ul class="hamberger-menu">
+        <li>
+          <form action="#" role="search" method="get" class="search-form">
+            <input type="search" class="search-field" placeholder="جستجو کنید">
+            <button type="submit" class="search-submit">
+              <i class="fas fa-search-plus"></i>
+            </button>
+          </form>
+        </li>
+        <li><a href="#">صفحه اصلی</a></li>
+        <li class="sub-menu-hamberger">
+          <a href="#">دوره ها</a>
+          <i class="fas fa-angle-left"></i>
+          <!-- sub menu hamberger -->
+          <ul>
+            <li><a href="#">دوره شماره یک</a></li>
+            <li><a href="#">دوره شماره دو</a></li>
+            <li><a href="#">دوره شماره سه</a></li>
+            <li><a href="#">دوره شماره چهار</a></li>
+            <li><a href="#">دوره شماره پنج</a></li>
+          </ul>
+        </li>
+        <li><a href="#">وبلاگ</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="#">تماس با ما</a></li>
+      </ul>
     </nav>
     <!-- *hamberger menu => end -->
     <!-- *Container => start -->
     <section class="container">
-      <img src="assets/firewatch-uhd-8k-wallpaper.jpg" alt="slider-image">
+      <img src="assets/firewatch-uhd-8k-wallpaper.jpg" alt="slider-image" id="slider" />
     </section>
     <!-- *Container => end -->
     <!-- * popup => start -->
