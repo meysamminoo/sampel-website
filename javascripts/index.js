@@ -21,6 +21,8 @@ form.addEventListener('submit', function(e){
   checkInput();
 })
 openHamberger.addEventListener('click', openHambergerMenu);
+closeHamberger.addEventListener('click', closeHambergerMenu);
+
 
 // ! Functions
 // todo: show popup on click login button
@@ -85,4 +87,13 @@ function openHambergerMenu(){
   document.body.style.overflow = 'hidden';
   closeHamberger.style.display = 'block';
   openHamberger.style.display = 'none';
+}
+// todo:
+function closeHambergerMenu(){
+  hamberger.classList.remove('active');
+  globalHeader.style.transform = `translateX(0)`;
+  container.style.transform = `translateX(0)`;
+  document.body.style.overflow = 'visible';
+  closeHamberger.style.display = 'none';
+  openHamberger.style.display = 'block';
 }
