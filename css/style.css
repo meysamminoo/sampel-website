@@ -40,13 +40,19 @@ input {
   border: none;
   outline: none;
 }
+img {
+  width: 100%;
+  height: auto;
+}
 body {
   font-size: 1.4rem;
   color: var(--font-color);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  min-height: 100vh;
+  position: relative;
 }
 /* overly */
 .overlay {
@@ -72,6 +78,7 @@ body {
   z-index: 999;
   background-color: var(--white);
   box-shadow: 0 0.125rem 0.25rem var(--shadow-light);
+  transition: transform 0.4s ease-in-out;
 }
 .wrapper-header {
   width: 90%;
@@ -156,6 +163,20 @@ body {
 }
 .menu-icon .fa-times {
   display: none;
+}
+#nav {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: #222324;
+  width: 30rem;
+  padding: 2rem;
+  transition: transform 0.4s ease-in-out;
+  transform: translateX(-100%);
+}
+#nav.active {
+  transform: translateX(0);
 }
 /* hamberger menu => end */
 /* login button => start */
@@ -259,7 +280,13 @@ body {
   width: 100%;
 }
 /* form => end */
+/* contaiiner => start */
+.container {
+  width: 100%;
+  transition: transform 0.4s ease-in-out;
+}
 
+/* contaiiner => end */
 /*  Responsive design */
 @media screen and (max-width: 960px) {
   .global-menu {

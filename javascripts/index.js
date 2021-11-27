@@ -6,6 +6,11 @@ const overlay = document.querySelector('.overlay');
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
+const openHamberger = document.getElementById('open-menu');
+const closeHamberger = document.getElementById('close-menu');
+const hamberger = document.getElementById('nav');
+const globalHeader = document.querySelector('.global-header');
+const container = document.querySelector('.container');
 
 // ! Add Event Listeners
 loginButton.addEventListener('click', showModal);
@@ -15,6 +20,7 @@ form.addEventListener('submit', function(e){
   e.preventDefault();
   checkInput();
 })
+openHamberger.addEventListener('click', openHambergerMenu);
 
 // ! Functions
 // todo: show popup on click login button
@@ -69,4 +75,14 @@ function validateEmail(email){
   const re =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return re.test(email);
+}
+// todo: open hamberger menu
+function openHambergerMenu(){
+  hamberger.classList.add('active');
+  const width = window.getComputedStyle(hamberger).getPropertyValue('width');
+  globalHeader.style.transform = `translateX(${width})`;
+  container.style.transform = `translateX(${width})`;
+  document.body.style.overflow = 'hidden';
+  closeHamberger.style.display = 'block';
+  openHamberger.style.display = 'none';
 }
