@@ -12,6 +12,8 @@ const hamberger = document.getElementById('nav');
 const globalHeader = document.querySelector('.global-header');
 const container = document.querySelector('.container');
 const dropdownMenu = document.querySelector('.sub-menu-hamberger');
+const faUser = document.querySelector('.fa-user');
+const topbar = document.querySelector('.top-bar');
 
 // ! Add Event Listeners
 loginButton.addEventListener('click', showModal);
@@ -24,6 +26,7 @@ form.addEventListener('submit', function(e){
 openHamberger.addEventListener('click', openHambergerMenu);
 closeHamberger.addEventListener('click', closeHambergerMenu);
 dropdownMenu.addEventListener('click',toggleHambergerMenu )
+faUser.addEventListener('click', showModal)
 
 // ! Functions
 // todo: show popup on click login button
@@ -85,20 +88,22 @@ function openHambergerMenu(){
   const width = window.getComputedStyle(hamberger).getPropertyValue('width');
   globalHeader.style.transform = `translateX(${width})`;
   container.style.transform = `translateX(${width})`;
+  topbar.style.transform = `translateX(${width})`;
   document.body.style.overflow = 'hidden';
   closeHamberger.style.display = 'block';
   openHamberger.style.display = 'none';
 }
-// todo:
+// todo: close hamberger menu
 function closeHambergerMenu(){
   hamberger.classList.remove('active');
   globalHeader.style.transform = `translateX(0)`;
   container.style.transform = `translateX(0)`;
+  topbar.style.transform = `translateX(0)`;
   document.body.style.overflow = 'visible';
   closeHamberger.style.display = 'none';
   openHamberger.style.display = 'block';
 }
-// todo:
+// todo: toggle drop down inner hamberger menu 
 function toggleHambergerMenu(){
   const iElement = this.querySelector('i');
   if( iElement.className === 'fas fa-angle-left'){
@@ -109,3 +114,13 @@ function toggleHambergerMenu(){
   const ulElement = this.querySelector('ul');
   ulElement.classList.toggle('active');
 }
+
+
+// ?stick nav
+window.addEventListener('scroll', function(){
+  if (window.scrollY >= globalHeader.offsetHeight){
+    globalHeader.style.position = 'fixed';
+  } else {
+    globalHeader.style.position = 'relative';
+  }
+})

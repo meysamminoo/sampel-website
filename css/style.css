@@ -17,6 +17,13 @@
   font-style: normal;
   font-weight: 400;
 }
+@font-face {
+  font-family: "mikhak";
+  src: url(../fonts/Mikhak-Light.ttf);
+  font-display: auto;
+  font-style: normal;
+  font-weight: 300;
+}
 /* ! Normalize CSS */
 * {
   padding: 0;
@@ -74,6 +81,50 @@ body {
   visibility: visible;
   opacity: 1;
 }
+/* top bar */
+.top-bar {
+  width: 100%;
+  background-color: #000;
+  color: var(--white);
+  direction: ltr;
+  transition: transform 0.4s ease-in-out;
+}
+.wrapper-top-bar {
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 4rem;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+.top-bar-items,
+.top-bar-items-mobile {
+  display: inline-block;
+}
+.top-bar-items-mobile {
+  display: none;
+}
+.top-bar-items ul,
+.top-bar-items-mobile ul {
+  display: flex;
+  flex-direction: row;
+}
+.top-bar-items ul li,
+.top-bar-items-mobile ul li {
+  margin-left: 2rem;
+}
+.top-bar-items ul li a {
+  color: var(--white);
+  font-weight: 300;
+}
+.top-bar-items ul li:first-child,
+.top-bar-items-mobile ul li:first-child {
+  margin-left: 0;
+}
+.fa-user {
+  cursor: pointer;
+}
 /* header */
 .global-header {
   width: 100%;
@@ -81,6 +132,7 @@ body {
   background-color: var(--white);
   box-shadow: 0 0.125rem 0.25rem var(--shadow-light);
   transition: transform 0.4s ease-in-out;
+  position: relative;
 }
 .wrapper-header {
   width: 90%;
@@ -283,7 +335,7 @@ body {
   height: 50rem;
   box-shadow: 0.2rem 0.2rem 0.5rem var(--shadow-dark);
   position: absolute;
-  top: 20%;
+  top: 10%;
   margin: 0 auto;
   opacity: 0;
   display: none;
@@ -369,6 +421,9 @@ body {
 #slider {
   padding: 1rem 0;
 }
+.test-text {
+  text-align: justify;
+}
 
 /* contaiiner => end */
 /*  Responsive design */
@@ -380,6 +435,12 @@ body {
     display: none;
   }
   .menu-icon {
+    display: block;
+  }
+  .top-bar-items {
+    display: none;
+  }
+  .top-bar-items-mobile {
     display: block;
   }
 }
