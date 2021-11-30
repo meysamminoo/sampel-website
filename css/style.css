@@ -443,7 +443,7 @@ body {
   flex-direction: column;
 }
 .countdown-container h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   color: var(--white);
 }
 .countdown-item {
@@ -460,7 +460,7 @@ body {
   align-items: center;
   margin: 1rem 2rem;
   color: var(--white);
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 /* contaiiner => end */
 /*  Responsive design */

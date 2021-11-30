@@ -124,3 +124,26 @@ window.addEventListener('scroll', function(){
     globalHeader.style.position = 'relative';
   }
 })
+
+// ? count down
+const dayElement = document.getElementById('days');
+const hourElement = document.getElementById('hours');
+const minuteElement = document.getElementById('minutes');
+const secondElement = document.getElementById('seconds');
+const publishDate = '10 feb 2022';
+function coundown(){
+  const newPublishDate = new Date(publishDate);
+  const currentDate = new Date();
+  const totalSeconds = (newPublishDate - currentDate) / 1000;
+  const days = Math.floor(totalSeconds/3600/24);
+  const hours = Math.floor(totalSeconds/3600) % 24;
+  const minute = Math.floor(totalSeconds/60) % 60;
+  const seconds = Math.floor(totalSeconds % 60);
+  dayElement.innerText = days;
+  hourElement.innerText = hours;
+  minuteElement.innerText = minute;
+  secondElement.innerText = seconds;
+}
+
+coundown();
+setInterval(coundown,1000);
