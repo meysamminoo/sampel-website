@@ -14,6 +14,9 @@ const container = document.querySelector('.container');
 const dropdownMenu = document.querySelector('.sub-menu-hamberger');
 const faUser = document.querySelector('.fa-user');
 const topbar = document.querySelector('.top-bar');
+const toggleSearch = document.getElementById('search-icon');
+const wrapperHeader = document.querySelector('.wrapper-header');
+const wrapperSearch = document.querySelector('.wrapper-search');
 
 // ! Add Event Listeners
 loginButton.addEventListener('click', showModal);
@@ -25,8 +28,9 @@ form.addEventListener('submit', function(e){
 })
 openHamberger.addEventListener('click', openHambergerMenu);
 closeHamberger.addEventListener('click', closeHambergerMenu);
-dropdownMenu.addEventListener('click',toggleHambergerMenu )
-faUser.addEventListener('click', showModal)
+dropdownMenu.addEventListener('click',toggleHambergerMenu );
+faUser.addEventListener('click', showModal);
+toggleSearch.addEventListener('click', toggleSearchHandler);
 
 // ! Functions
 // todo: show popup on click login button
@@ -114,6 +118,18 @@ function toggleHambergerMenu(){
   const ulElement = this.querySelector('ul');
   ulElement.classList.toggle('active');
 }
+// todo:
+function toggleSearchHandler(){
+  if ( this.className === 'fas fa-search'){
+  wrapperHeader.classList.add('disabled');
+  wrapperSearch.classList.add('active');
+  this.className = 'fas fa-times';
+  } else {
+    wrapperHeader.classList.remove('disabled');
+    wrapperSearch.classList.remove('active');
+    this.className = 'fas fa-search';
+  }
+}
 
 
 // ?stick nav
@@ -144,6 +160,5 @@ function coundown(){
   minuteElement.innerText = minute;
   secondElement.innerText = seconds;
 }
-
 coundown();
 setInterval(coundown,1000);
