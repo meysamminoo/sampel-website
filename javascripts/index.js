@@ -17,6 +17,7 @@ const topbar = document.querySelector('.top-bar');
 const toggleSearch = document.getElementById('search-icon');
 const wrapperHeader = document.querySelector('.wrapper-header');
 const wrapperSearch = document.querySelector('.wrapper-search');
+const searchInput = document.querySelector('.search-input');
 
 // ! Add Event Listeners
 loginButton.addEventListener('click', showModal);
@@ -118,17 +119,37 @@ function toggleHambergerMenu(){
   const ulElement = this.querySelector('ul');
   ulElement.classList.toggle('active');
 }
-// todo:
+// todo: toggle header and search form
 function toggleSearchHandler(){
   if ( this.className === 'fas fa-search'){
   wrapperHeader.classList.add('disabled');
   wrapperSearch.classList.add('active');
   this.className = 'fas fa-times';
+  addSearchSpeech();
   } else {
     wrapperHeader.classList.remove('disabled');
     wrapperSearch.classList.remove('active');
     this.className = 'fas fa-search';
   }
+}
+// todo: use SpeechRecognition for sound search
+function addSearchSpeech(){
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'fa-IR';
+  recognition.intreimResults = true;
+  recognition.addEventListener('result', e => {
+    const transcript = Array.from(e.results)
+    .map(result => result[0])
+    .map(result => result.transcript)
+    .join('');
+    console.log(transcript)
+    if(e.results[0].isFinal){
+      searchInput.value = transcript;
+    }
+  })
+  recognition.addEventListener('end', recognition.start);
+  recognition.start();
 }
 
 
