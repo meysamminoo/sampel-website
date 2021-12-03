@@ -456,9 +456,34 @@ body {
 #slider {
   padding: 1rem 0;
 }
-.test-text {
-  text-align: justify;
+.wrapper {
+  width: 100%;
 }
+.courses {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.courses .seprator {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.courses .seprator .seprator-holder {
+  height: 1px;
+  border-top: 1px dashed var(--dark);
+  flex: 1 1 auto;
+}
+.courses .seprator h4 {
+  padding: 0 2rem;
+  font-size: 1.5rem;
+}
+
 /* count down  */
 .wrapper-countdown {
   width: 100%;
