@@ -483,7 +483,78 @@ body {
   padding: 0 2rem;
   font-size: 1.5rem;
 }
-
+.wrapper-course {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-flow: row wrap;
+}
+.course {
+  width: 22%;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  margin: 0.5rem auto;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.thumnail-course {
+  position: relative;
+}
+.thumnail-course img {
+  width: 100%;
+  height: auto;
+}
+.video-btn,
+.add-to-card-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0.37);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-size: 1.8rem;
+}
+.add-to-card-btn {
+  top: 6rem;
+}
+.video-btn:hover,
+.add-to-card-btn:hover {
+  background-color: var(--white);
+  color: var(--font-color);
+}
+.content-course {
+  display: flex;
+  flex-direction: column;
+}
+.course-title {
+  padding: 1rem;
+}
+.course-title h3 {
+  line-height: 1.5rem;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+.course-teacher {
+  align-self: flex-end;
+  padding: 1rem;
+}
+.course-meta {
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
 /* count down  */
 .wrapper-countdown {
   width: 100%;
@@ -542,5 +613,8 @@ body {
   }
   .countdown-container h1 {
     font-size: 2.5rem;
+  }
+  .course {
+    width: 100%;
   }
 }
