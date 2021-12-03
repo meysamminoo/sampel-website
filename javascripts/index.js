@@ -18,6 +18,7 @@ const toggleSearch = document.getElementById('search-icon');
 const wrapperHeader = document.querySelector('.wrapper-header');
 const wrapperSearch = document.querySelector('.wrapper-search');
 const searchInput = document.querySelector('.search-input');
+const backToTop = document.querySelector('.back-to-top');
 
 // ! Add Event Listeners
 loginButton.addEventListener('click', showModal);
@@ -32,6 +33,7 @@ closeHamberger.addEventListener('click', closeHambergerMenu);
 dropdownMenu.addEventListener('click',toggleHambergerMenu );
 faUser.addEventListener('click', showModal);
 toggleSearch.addEventListener('click', toggleSearchHandler);
+backToTop.addEventListener('click', backTotopPage);
 
 // ! Functions
 // todo: show popup on click login button
@@ -151,7 +153,10 @@ function addSearchSpeech(){
   recognition.addEventListener('end', recognition.start);
   recognition.start();
 }
-
+// todo: back to top page 
+function backTotopPage(){
+  window.scrollTo({top:0, behavior:`smooth`});
+}
 
 // ?stick nav
 window.addEventListener('scroll', function(){
@@ -159,6 +164,11 @@ window.addEventListener('scroll', function(){
     globalHeader.style.position = 'fixed';
   } else {
     globalHeader.style.position = 'relative';
+  }
+  if (window.scrollY > 100) {
+    backToTop.classList.add('active');
+  } else {
+    backToTop.classList.remove('active');
   }
 })
 
