@@ -198,8 +198,15 @@ setInterval(coundown, 1000);
 // ! shopping cart
 const shoppingCartIcon = document.querySelector(".fa-shopping-bag");
 const shoppingCartBox = document.querySelector(".shopping-cart-box");
+const coursePrice = shoppingCartBox.querySelectorAll(".item-price");
+const totalShoppingCart = shoppingCartBox.querySelector(".shopping-cart-total");
 
 shoppingCartIcon.addEventListener("click", toggleShoppingCartBox);
 function toggleShoppingCartBox() {
   shoppingCartBox.classList.toggle("active");
 }
+let sum = 0;
+coursePrice.forEach((course) => {
+  sum += Number(course.innerText.match(/\d+/));
+});
+totalShoppingCart.innerText = `جمع کل: ${sum} تومان`;
