@@ -60,7 +60,7 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 37.5rem;
+  min-width: 43rem;
   position: relative;
 }
 /* overly */
@@ -91,6 +91,7 @@ body {
 }
 .mini-cart-opener {
   position: relative;
+  color: var(--white);
 }
 .mini-cart-opener .cart-number {
   position: absolute;
@@ -722,6 +723,7 @@ body {
   color: var(--white);
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 400;
 }
 .shopping-cart-buttons .orange {
   background-color: var(--main-color);

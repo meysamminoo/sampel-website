@@ -61,10 +61,10 @@
                 <div class="shopping-cart-bottom">
                   <p class="shopping-cart-total">0</p>
                   <div class="shopping-cart-buttons">
-                    <button class="button wc-forward">مشاهده سبد خرید</button>
-                    <button class="button checkout wc-forward orange">
-                      تسویه حساب
-                    </button>
+                    <a class="button wc-forward" href="#">مشاهده سبد خرید</a>
+                    <a class="button checkout wc-forward orange" href="#"
+                      >تسویه حساب
+                    </a>
                   </div>
                 </div>
                 <!-- shopping cart buttons => end -->
@@ -80,7 +80,12 @@
         <div class="top-bar-items-mobile">
           <ul>
             <li><i class="fas fa-user"></i></li>
-            <li><i class="fas fa-search"></i></li>
+            <li>
+              <a href="#" class="mini-cart-opener">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-number">0</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

@@ -198,15 +198,28 @@ setInterval(coundown, 1000);
 // ! shopping cart
 const shoppingCartIcon = document.querySelector(".fa-shopping-bag");
 const shoppingCartBox = document.querySelector(".shopping-cart-box");
-const coursePrice = shoppingCartBox.querySelectorAll(".item-price");
-const totalShoppingCart = shoppingCartBox.querySelector(".shopping-cart-total");
 
+// todo: show and hide shopping card box
 shoppingCartIcon.addEventListener("click", toggleShoppingCartBox);
 function toggleShoppingCartBox() {
   shoppingCartBox.classList.toggle("active");
 }
-let sum = 0;
-coursePrice.forEach((course) => {
-  sum += Number(course.innerText.match(/\d+/));
-});
-totalShoppingCart.innerText = `جمع کل: ${sum} تومان`;
+// todo: calculater sum shopping item
+function calculaterSumShoppingItem() {
+  const coursePrice = shoppingCartBox.querySelectorAll(".item-price");
+  const totalShoppingCart = shoppingCartBox.querySelector(
+    ".shopping-cart-total"
+  );
+  const cartNumber = topbar.querySelector(".cart-number");
+  const mobileCartNumber = topbar.querySelector(
+    ".top-bar-items-mobile .cart-number"
+  );
+  let sum = 0;
+  coursePrice.forEach((course) => {
+    sum += Number(course.innerText.match(/\d+/));
+  });
+  totalShoppingCart.innerText = `جمع کل: ${sum} تومان`;
+  cartNumber.innerText = coursePrice.length;
+  mobileCartNumber.innerText = coursePrice.length;
+}
+calculaterSumShoppingItem();
