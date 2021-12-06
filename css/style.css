@@ -561,6 +561,14 @@ body {
 .add-to-card-btn {
   top: 6rem;
 }
+.video-btn > i,
+.add-to-card-btn > i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .video-btn:hover,
 .add-to-card-btn:hover {
   background-color: var(--white);
