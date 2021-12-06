@@ -198,6 +198,7 @@ setInterval(coundown, 1000);
 // ! shopping cart
 const shoppingCartIcon = document.querySelector(".fa-shopping-bag");
 const shoppingCartBox = document.querySelector(".shopping-cart-box");
+const shoppingCartItem = document.querySelector(".shopping-cart-items");
 
 // todo: show and hide shopping card box
 shoppingCartIcon.addEventListener("click", toggleShoppingCartBox);
@@ -223,3 +224,14 @@ function calculaterSumShoppingItem() {
   mobileCartNumber.innerText = coursePrice.length;
 }
 calculaterSumShoppingItem();
+
+shoppingCartItem.addEventListener("click", deleteCartItem);
+// todo:
+function deleteCartItem(e) {
+  const item = e.target;
+  if (item.className === "fas fa-times") {
+    const cartItem = item.parentElement;
+    cartItem.remove();
+    calculaterSumShoppingItem();
+  }
+}
