@@ -199,7 +199,7 @@ setInterval(coundown, 1000);
 const shoppingCartIcon = document.querySelector(".fa-shopping-bag");
 const shoppingCartBox = document.querySelector(".shopping-cart-box");
 const shoppingCartItem = document.querySelector(".shopping-cart-items");
-const products = document.querySelectorAll(".add-to-card-btn");
+const products = document.querySelectorAll(".wrapper-course .add-to-card-btn");
 
 // todo: show and hide shopping card box
 shoppingCartIcon.addEventListener("click", toggleShoppingCartBox);
@@ -247,12 +247,30 @@ function addToBasket(e) {
   const course = e.target.parentElement.parentElement.parentElement;
   const courseImage = course.querySelector("img").src;
   const courseTitle = course.querySelector(".course-title a").innerText;
-  let coursePrice = course.querySelector(".course-price span").innerText;
-  console.log(courseImage, courseTitle, coursePrice);
+  let coursePrice = course.querySelector(".course-price .amount").innerText;
   if (coursePrice === "رایگان!") {
     coursePrice = 0;
   } else {
-    coursePrice = Number(coursePrice);
+    coursePrice = Number(coursePrice.match(/\d+/));
   }
   createItem(courseImage, courseTitle, coursePrice);
+}
+
+// todo: create item and add to shopping cart
+function createItem(courseImage, courseTitle, coursePrice) {
+  const cartItemElement = document.createElement("div");
+  cartItemElement.className = "shopping-cart-item";
+  cartItemElement.innerHTML = `
+    <i class="fas fa-times"></i>
+    <div class="cart-item-content">
+      <span class="item-title">${courseTitle}</span>
+      <span class="item-price">${coursePrice} تومان</span>
+    </div>
+    <img
+    src="${courseImage}"
+    alt="${courseTitle}"
+    />
+    `;
+  shoppingCartItem.appendChild(cartItemElement);
+  calculaterSumShoppingItem();
 }
