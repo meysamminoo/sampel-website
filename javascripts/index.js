@@ -199,6 +199,7 @@ setInterval(coundown, 1000);
 const shoppingCartIcon = document.querySelector(".fa-shopping-bag");
 const shoppingCartBox = document.querySelector(".shopping-cart-box");
 const shoppingCartItem = document.querySelector(".shopping-cart-items");
+const products = document.querySelectorAll(".add-to-card-btn");
 
 // todo: show and hide shopping card box
 shoppingCartIcon.addEventListener("click", toggleShoppingCartBox);
@@ -226,7 +227,7 @@ function calculaterSumShoppingItem() {
 calculaterSumShoppingItem();
 
 shoppingCartItem.addEventListener("click", deleteCartItem);
-// todo:
+// todo: remove shopping cart item
 function deleteCartItem(e) {
   const item = e.target;
   if (item.className === "fas fa-times") {
@@ -234,4 +235,24 @@ function deleteCartItem(e) {
     cartItem.remove();
     calculaterSumShoppingItem();
   }
+}
+
+//
+products.forEach((item) => {
+  item.addEventListener("click", addToBasket);
+});
+// todo: add to basket item
+function addToBasket(e) {
+  e.preventDefault();
+  const course = e.target.parentElement.parentElement.parentElement;
+  const courseImage = course.querySelector("img").src;
+  const courseTitle = course.querySelector(".course-title a").innerText;
+  let coursePrice = course.querySelector(".course-price span").innerText;
+  console.log(courseImage, courseTitle, coursePrice);
+  if (coursePrice === "رایگان!") {
+    coursePrice = 0;
+  } else {
+    coursePrice = Number(coursePrice);
+  }
+  createItem(courseImage, courseTitle, coursePrice);
 }
