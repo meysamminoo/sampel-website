@@ -274,3 +274,44 @@ function createItem(courseImage, courseTitle, coursePriceItem) {
   shoppingCartItem.appendChild(cartItemElement);
   calculaterSumShoppingItem();
 }
+
+// ! shopping course - newest course - infinity slider
+const slider = document.querySelector(".course-container");
+const carousel = document.querySelector(".newest-course");
+const next = document.querySelector(".newest-course-container .fa-angle-right");
+const prev = document.querySelector(".newest-course-container .fa-angle-left");
+const courseItem = document.querySelectorAll(".newest-course .course");
+const width = window.getComputedStyle(courseItem[0]).getPropertyValue("width");
+let direction;
+
+next.addEventListener("click", function () {
+  direction = -1;
+  carousel.style.justifyContent = "flex-start";
+  slider.style.transform = `translateX(-${width})`;
+});
+
+prev.addEventListener("click", function () {
+  if (direction === -1) {
+    direction = 1;
+    slider.appendChild(slider.firstElementChild);
+  }
+  carousel.style.justifyContent = "flex-end";
+  slider.style.transform = `translateX(${width})`;
+});
+
+slider.addEventListener(
+  "transitionend",
+  function () {
+    if (direction === 1) {
+      slider.prepend(slider.lastElementChild);
+    } else {
+      slider.appendChild(slider.firstElementChild);
+    }
+    slider.style.transition = "none";
+    slider.style.transform = "translateX(0)";
+    setTimeout(() => {
+      slider.style.transition = "all 300ms";
+    });
+  },
+  false
+);

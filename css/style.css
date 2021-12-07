@@ -518,7 +518,7 @@ body {
   font-size: 1.5rem;
 }
 .wrapper-course,
-.newest-course {
+.newest-course-container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -600,8 +600,8 @@ body {
   align-items: center;
   padding: 1rem 2rem;
 }
-.newest-course .fa-angle-right,
-.newest-course .fa-angle-left {
+.newest-course-container .fa-angle-right,
+.newest-course-container .fa-angle-left {
   font-size: 3rem;
   padding: 1rem;
 }
