@@ -482,7 +482,7 @@ body {
   width: 100%;
 }
 /* form => end */
-/* contaiiner => start */
+/* container => start */
 .container {
   width: 90%;
   transition: transform 0.4s ease-in-out;
@@ -517,13 +517,14 @@ body {
   padding: 0 2rem;
   font-size: 1.5rem;
 }
-.wrapper-course {
+.wrapper-course,
+.newest-course {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  flex-flow: row wrap;
+  flex-flow: row;
   margin-bottom: 4rem;
 }
 .course {
@@ -598,6 +599,21 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+}
+.newest-course .fa-angle-right,
+.newest-course .fa-angle-left {
+  font-size: 3rem;
+  padding: 1rem;
+}
+.newest-course {
+  overflow: hidden;
+  width: 100%;
+}
+.course-container {
+  display: -webkit-inline-box;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+  width: 100%;
 }
 /* count down  */
 .wrapper-countdown {
