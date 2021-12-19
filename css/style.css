@@ -809,7 +809,23 @@ body {
   height: 10rem;
   border-radius: 50%;
 }
-
+.dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-direction: row;
+}
+.dots {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 3px;
+  color: #fac800;
+  background-color: #fac800;
+  margin: 1rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
 /* container => end */
 /*  Responsive design */
 @media screen and (max-width: 960px) {

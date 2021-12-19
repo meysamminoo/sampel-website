@@ -330,3 +330,13 @@ slider.addEventListener(
   },
   false
 );
+
+// user Comment
+const comments = document.querySelectorAll(".comment-container .comment");
+const dotsContainer = document.querySelector(".dots-container");
+comments.forEach((item, index) => {
+  const span = document.createElement("span");
+  span.classList.add("dots");
+  span.setAttribute("position", index);
+  dotsContainer.appendChild(span);
+});
