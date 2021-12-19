@@ -492,6 +492,7 @@ body {
 }
 .wrapper {
   width: 100%;
+  overflow-x: hidden;
 }
 .courses {
   width: 100%;
@@ -763,7 +764,53 @@ body {
   color: var(--font-color);
 }
 /* shopping cart => end */
-/* contaiiner => end */
+/* user comment */
+.user-comment {
+  width: 70%;
+  overflow: hidden;
+  margin-bottom: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.comment-container {
+  display: -webkit-inline-box;
+  transition: transform 0.4s linear;
+  transform: translateX(0);
+  width: 100%;
+}
+.comment {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  position: relative;
+}
+.comment p {
+  padding: 5rem;
+  text-align: justify;
+  line-height: 4.8rem;
+  margin-top: 5rem;
+  box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.075);
+}
+.user-pic-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+}
+.user-pic-box img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+/* container => end */
 /*  Responsive design */
 @media screen and (max-width: 960px) {
   .global-menu {
