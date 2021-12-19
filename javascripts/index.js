@@ -19,6 +19,7 @@ const wrapperHeader = document.querySelector(".wrapper-header");
 const wrapperSearch = document.querySelector(".wrapper-search");
 const searchInput = document.querySelector(".search-input");
 const backToTop = document.querySelector(".back-to-top");
+const wrapperCourse = document.querySelector(".wrapper-course");
 
 // ! Add Event Listeners
 loginButton.addEventListener("click", showModal);
@@ -170,6 +171,20 @@ window.addEventListener("scroll", function () {
     backToTop.classList.add("active");
   } else {
     backToTop.classList.remove("active");
+  }
+  const opacity = window
+    .getComputedStyle(wrapperCourse)
+    .getPropertyValue("opacity");
+  let height = window
+    .getComputedStyle(wrapperCourse)
+    .getPropertyValue("height");
+  height = Number(height.match(/\d+/));
+  let slideAt = window.scrollY + window.innerHeight - height / 2;
+  const rect = wrapperCourse.getBoundingClientRect();
+  if (slideAt > rect.top) {
+    if (opacity < 1) {
+      wrapperCourse.classList.add("active");
+    }
   }
 });
 

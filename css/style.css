@@ -526,6 +526,15 @@ body {
   padding: 1rem;
   flex-flow: row;
   margin-bottom: 4rem;
+  transition: transform 1s ease;
+}
+.wrapper-course {
+  opacity: 0;
+  transform: translateX(-120%);
+}
+.wrapper-course.active {
+  opacity: 1;
+  transform: translateX(0);
 }
 .course {
   width: 22%;
