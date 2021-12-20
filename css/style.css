@@ -776,10 +776,11 @@ body {
   direction: ltr;
 }
 .comment-container {
+  width: 100%;
   display: -webkit-inline-box;
   transition: transform 0.4s linear;
-  transform: translateX(0);
-  width: 100%;
+  transform: translateX(0) translate3d(0, 0, 0);
+  animation: moveSlideShowComment 40s linear infinite;
 }
 .comment {
   width: 100%;
@@ -832,6 +833,12 @@ body {
   opacity: 1;
 }
 /* container => end */
+/* *animations */
+@keyframes moveSlideShowComment {
+  100% {
+    transform: translateX(-300%);
+  }
+}
 /*  Responsive design */
 @media screen and (max-width: 960px) {
   .global-menu {
