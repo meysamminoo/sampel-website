@@ -333,10 +333,31 @@ slider.addEventListener(
 
 // user Comment
 const comments = document.querySelectorAll(".comment-container .comment");
+const commentContainer = document.querySelector(".comment-container");
 const dotsContainer = document.querySelector(".dots-container");
 comments.forEach((item, index) => {
   const span = document.createElement("span");
   span.classList.add("dots");
   span.setAttribute("position", index);
+  span.addEventListener("click", sliderComment);
   dotsContainer.appendChild(span);
 });
+
+let commentWidth = window
+  .getComputedStyle(comments[0])
+  .getPropertyValue("width");
+commentWidth = Number(commentWidth.match(/\d+/));
+console.log(commentWidth);
+
+// todo:
+function sliderComment(e) {
+  let position = e.target.getAttribute("position");
+  console.log(position);
+  commentContainer.style.transform = `translateX(-${
+    commentWidth * position
+  }px)`;
+  dotsContainer.querySelectorAll(".dots").forEach((item) => {
+    item.style.opacity = "0.5";
+    e.target.style.opacity = "1";
+  });
+}

@@ -773,6 +773,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  direction: ltr;
 }
 .comment-container {
   display: -webkit-inline-box;
@@ -793,6 +794,7 @@ body {
   padding: 5rem;
   text-align: justify;
   line-height: 4.8rem;
+  direction: rtl;
   margin-top: 5rem;
   box-shadow: 0 2px 11px 0 rgba(0, 0, 0, 0.075);
 }
@@ -825,6 +827,9 @@ body {
   margin: 1rem;
   opacity: 0.5;
   cursor: pointer;
+}
+.dots:first-child {
+  opacity: 1;
 }
 /* container => end */
 /*  Responsive design */
