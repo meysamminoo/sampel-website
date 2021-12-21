@@ -833,6 +833,112 @@ body {
   opacity: 1;
 }
 /* container => end */
+/* footer => start */
+.footer {
+  width: 100%;
+  background: #000;
+  color: #fff;
+}
+.wrapper-footer {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 3rem auto;
+}
+.footer-widget-col {
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+.footer-widget-col.row {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 5rem;
+}
+.contact,
+.quick-access {
+  display: flex;
+  flex-flow: column;
+}
+.quick-access {
+  position: relative;
+}
+.contact .contact-title,
+.quick-access .title {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+  position: relative;
+}
+.contact .contact-title::before,
+.quick-access .title::before {
+  content: "";
+  width: 1.8rem;
+  margin-top: 1.5rem;
+  height: 4px;
+  background-color: #ffb606;
+  position: absolute;
+  right: 8.4rem;
+}
+.quick-access .title::before {
+  right: 11rem;
+}
+.contact ul,
+.quick-access ul {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+.contact ul li,
+.quick-access ul li {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.contact ul li i {
+  margin-left: 1rem;
+  font-size: 181.8rempx;
+}
+.contact ul li a {
+  color: #fff;
+}
+.social-network {
+  position: relative;
+  right: -1rem;
+}
+.social-network i {
+  font-size: 2.4rem;
+  color: #fff;
+  margin: 10px;
+}
+.footer-widget-col .bank-portal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+}
+.footer-widget-col .bank-portal img {
+  width: 6rem;
+  height: 8.5rem;
+  margin: 1.5rem;
+}
+.copy-right {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 2rem 0;
+  border-top: 1px solid #222321;
+}
+/* footer => end */
 /* *animations */
 @keyframes moveSlideShowComment {
   100% {
