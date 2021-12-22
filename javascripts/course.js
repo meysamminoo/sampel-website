@@ -261,10 +261,32 @@ const magnify = (function () {
   const img = picCourse.querySelector("img");
   const glass = document.createElement("div");
   const isDimention = 150;
+  let isVisible = false;
 
   glass.classList.add("glass");
   glass.style.width = `${isDimention}px`;
   glass.style.height = `${isDimention}px`;
-  glass.style.backgroundImage = `{url(${img})}`;
+  glass.style.backgroundImage = `url(${img.src})`;
   picCourse.append(glass);
+  img.addEventListener("mouseover", function () {
+    glass.style.display = "block";
+    isVisible = true;
+  });
+  img.addEventListener("mouseout", function () {
+    glass.style.display = "none";
+    isVisible = false;
+  });
+  picCourse.addEventListener("mousemove", function (event) {
+    if (isVisible) {
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+      const imgCordinates = img.getBoundingClientRect();
+      const { left, top } = imgCordinates;
+      const bgX = (100 * (mouseX - left)) / img.offsetWidth;
+      const bgY = (100 * (mouseY - top)) / img.offsetHeight;
+      glass.style.left = `${mouseX - left - isDimention / 2}px`;
+      glass.style.top = `${mouseY - top - isDimention / 2}px`;
+      glass.style.backgroundPosition = `${bgX}% ${bgY}%`;
+    }
+  });
 })();
