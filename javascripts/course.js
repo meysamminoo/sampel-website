@@ -19,6 +19,7 @@ const wrapperHeader = document.querySelector(".wrapper-header");
 const wrapperSearch = document.querySelector(".wrapper-search");
 const searchInput = document.querySelector(".search-input");
 const backToTop = document.querySelector(".back-to-top");
+container;
 const wrapperCourse = document.querySelector(".wrapper-course");
 
 // ! Add Event Listeners
@@ -172,20 +173,6 @@ window.addEventListener("scroll", function () {
   } else {
     backToTop.classList.remove("active");
   }
-  const opacity = window
-    .getComputedStyle(wrapperCourse)
-    .getPropertyValue("opacity");
-  let height = window
-    .getComputedStyle(wrapperCourse)
-    .getPropertyValue("height");
-  height = Number(height.match(/\d+/));
-  let slideAt = window.scrollY + window.innerHeight - height / 2;
-  const rect = wrapperCourse.getBoundingClientRect();
-  if (slideAt > rect.top) {
-    if (opacity < 1) {
-      wrapperCourse.classList.add("active");
-    }
-  }
 });
 
 // ! shopping cart
@@ -268,43 +255,16 @@ function createItem(courseImage, courseTitle, coursePriceItem) {
   calculaterSumShoppingItem();
 }
 
-// ! shopping course - newest course - infinity slider
-const slider = document.querySelector(".course-container");
-const carousel = document.querySelector(".newest-course");
-const next = document.querySelector(".newest-course-container .fa-angle-right");
-const prev = document.querySelector(".newest-course-container .fa-angle-left");
-const courseItem = document.querySelectorAll(".newest-course .course");
-const width = window.getComputedStyle(courseItem[0]).getPropertyValue("width");
-let direction;
+// magnify IISE
+const magnify = (function () {
+  const picCourse = document.querySelector(".course-info .pic-course");
+  const img = picCourse.querySelector("img");
+  const glass = document.createElement("div");
+  const isDimention = 150;
 
-next.addEventListener("click", function () {
-  direction = -1;
-  carousel.style.justifyContent = "flex-start";
-  slider.style.transform = `translateX(-${width})`;
-});
-
-prev.addEventListener("click", function () {
-  if (direction === -1) {
-    direction = 1;
-    slider.appendChild(slider.firstElementChild);
-  }
-  carousel.style.justifyContent = "flex-end";
-  slider.style.transform = `translateX(${width})`;
-});
-
-slider.addEventListener(
-  "transitionend",
-  function () {
-    if (direction === 1) {
-      slider.prepend(slider.lastElementChild);
-    } else {
-      slider.appendChild(slider.firstElementChild);
-    }
-    slider.style.transition = "none";
-    slider.style.transform = "translateX(0)";
-    setTimeout(() => {
-      slider.style.transition = "all 300ms";
-    });
-  },
-  false
-);
+  glass.classList.add("glass");
+  glass.style.width = `${isDimention}px`;
+  glass.style.height = `${isDimention}px`;
+  glass.style.backgroundImage = `{url(${img})}`;
+  picCourse.append(glass);
+})();

@@ -983,14 +983,16 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
+  padding: 0 5rem;
 }
 .course-row.fixed {
   flex-flow: column !important;
 }
 .course-info {
   width: 60%;
-  padding: 60px;
+  padding: 6rem 4rem;
   background-color: transparent;
+  position: relative;
 }
 .course-info .pic-course {
   width: 100%;
@@ -1061,7 +1063,7 @@ body {
   padding: 10px;
   background-color: transparent;
   padding: 15px;
-  padding: 50px;
+  padding: 6rem 4rem;
 }
 .course-info-box {
   background-color: #fff;
