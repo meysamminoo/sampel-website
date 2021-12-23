@@ -845,7 +845,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  margin: 3rem auto;
+  margin: 8rem auto;
 }
 .footer-widget-col {
   width: 50%;
@@ -986,7 +986,7 @@ body {
   padding: 0 5rem;
 }
 .course-row.fixed {
-  flex-flow: column !important;
+  flex-direction: column !important;
 }
 .course-info {
   width: 60%;
@@ -1059,10 +1059,9 @@ body {
 }
 .course-detail-info {
   width: 40%;
-  padding: 10px;
   background-color: transparent;
-  padding: 15px;
   padding: 6rem 4rem;
+  position: fixed;
 }
 .course-info-box {
   background-color: #fff;

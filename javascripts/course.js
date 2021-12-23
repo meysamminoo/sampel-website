@@ -165,6 +165,7 @@ function backTotopPage() {
 const courseContent = document.querySelector(".course-content");
 const studyMode = document.querySelector(".study-mode");
 const courseInfo = document.querySelector(".course-info");
+const courseDetailInfo = document.querySelector(".course-detail-info");
 
 window.addEventListener("scroll", function () {
   if (window.scrollY >= globalHeader.offsetHeight) {
@@ -190,6 +191,26 @@ window.addEventListener("scroll", function () {
     studyMode.style.position = "absolute";
     studyMode.style.right = "-50px";
     studyMode.style.top = `${courseContent.offsetHeight - 40}px`;
+  }
+
+  // fixed course detail info when scroll page
+  if (
+    window.scrollY > courseDetailInfo.parentElement.offsetTop &&
+    window.scrollY < courseContent.offsetHeight + 50
+  ) {
+    courseDetailInfo.style.position = "fixed";
+    courseDetailInfo.style.left = "4rem";
+    courseDetailInfo.style.top = "0";
+    courseDetailInfo.parentElement.classList.add("fixed");
+  } else if (this.window.scrollY >= courseContent.offsetHeight + 50) {
+    courseDetailInfo.style.position = "relative";
+    courseDetailInfo.parentElement.classList.remove("fixed");
+    courseDetailInfo.style.top = `${
+      courseInfo.offsetHeight - courseDetailInfo.offsetHeight
+    }px`;
+  } else {
+    courseDetailInfo.style.position = "relative";
+    courseDetailInfo.parentElement.classList.remove("fixed");
   }
 });
 
@@ -311,7 +332,6 @@ const magnify = (function () {
 
 // study mode
 const studyModeBtn = document.querySelector(".study-mode-btn");
-const courseDetailInfo = document.querySelector(".course-detail-info");
 let isActive = false;
 
 studyModeBtn.addEventListener("click", function () {
