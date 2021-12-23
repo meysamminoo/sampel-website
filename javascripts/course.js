@@ -162,6 +162,10 @@ function backTotopPage() {
 }
 
 // ?stick nav
+const courseContent = document.querySelector(".course-content");
+const studyMode = document.querySelector(".study-mode");
+const courseInfo = document.querySelector(".course-info");
+
 window.addEventListener("scroll", function () {
   if (window.scrollY >= globalHeader.offsetHeight) {
     globalHeader.style.position = "fixed";
@@ -172,6 +176,20 @@ window.addEventListener("scroll", function () {
     backToTop.classList.add("active");
   } else {
     backToTop.classList.remove("active");
+  }
+  // fix button study mode
+  if (window.scrollY > courseContent.offsetTop + 80) {
+    studyMode.style.position = "fixed";
+    studyMode.style.right = "45px";
+    studyMode.style.top = `${studyMode.offsetHeight / 4}px`;
+  } else if (window.scrollY < courseContent.offsetTop + 80) {
+    studyMode.style.position = "absolute";
+    studyMode.style.right = "-50px";
+    studyMode.style.top = `0`;
+  } else if (window.scrollY + 20 > courseInfo.offsetHeight) {
+    studyMode.style.position = "absolute";
+    studyMode.style.right = "-50px";
+    studyMode.style.top = `${courseContent.offsetHeight - 40}px`;
   }
 });
 
@@ -293,7 +311,6 @@ const magnify = (function () {
 
 // study mode
 const studyModeBtn = document.querySelector(".study-mode-btn");
-const courseInfo = document.querySelector(".course-info");
 const courseDetailInfo = document.querySelector(".course-detail-info");
 let isActive = false;
 
