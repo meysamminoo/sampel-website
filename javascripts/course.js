@@ -179,19 +179,30 @@ window.addEventListener("scroll", function () {
     backToTop.classList.remove("active");
   }
   // fix button study mode
-  if (window.scrollY > courseContent.offsetTop + 80) {
+  if (
+    window.scrollY > courseContent.offsetTop + 80 &&
+    window.scrollY + 60 < courseInfo.offsetHeight
+  ) {
+    console.log(1);
     studyMode.style.position = "fixed";
     studyMode.style.right = "45px";
     studyMode.style.top = `${studyMode.offsetHeight / 4}px`;
   } else if (window.scrollY < courseContent.offsetTop + 80) {
+    console.log(2);
     studyMode.style.position = "absolute";
     studyMode.style.right = "-50px";
     studyMode.style.top = `0`;
-  } else if (window.scrollY + 20 > courseInfo.offsetHeight) {
+  } else if (window.scrollY + 60 > courseInfo.offsetHeight) {
+    console.log(3);
     studyMode.style.position = "absolute";
     studyMode.style.right = "-50px";
-    studyMode.style.top = `${courseContent.offsetHeight - 40}px`;
+    studyMode.style.top = `0 `;
   }
+  console.log(
+    window.scrollY,
+    courseContent.offsetHeight - 40,
+    studyMode.offsetHeight
+  );
 
   // fixed course detail info when scroll page
   if (
@@ -202,7 +213,7 @@ window.addEventListener("scroll", function () {
     courseDetailInfo.style.left = "4rem";
     courseDetailInfo.style.top = "0";
     courseDetailInfo.parentElement.classList.add("fixed");
-  } else if (this.window.scrollY >= courseContent.offsetHeight + 50) {
+  } else if (window.scrollY >= courseContent.offsetHeight + 50) {
     courseDetailInfo.style.position = "relative";
     courseDetailInfo.parentElement.classList.remove("fixed");
     courseDetailInfo.style.top = `${
