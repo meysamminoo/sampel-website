@@ -290,3 +290,20 @@ const magnify = (function () {
     }
   });
 })();
+
+// study mode
+const studyModeBtn = document.querySelector(".study-mode-btn");
+const courseInfo = document.querySelector(".course-info");
+const courseDetailInfo = document.querySelector(".course-detail-info");
+let isActive = false;
+
+studyModeBtn.addEventListener("click", function () {
+  isActive = !isActive;
+  if (isActive) {
+    courseInfo.style.width = "80%";
+    courseDetailInfo.style.display = "none";
+  } else {
+    courseInfo.style.width = "60%";
+    courseDetailInfo.style.display = "block";
+  }
+});
