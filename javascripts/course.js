@@ -307,3 +307,27 @@ studyModeBtn.addEventListener("click", function () {
     courseDetailInfo.style.display = "block";
   }
 });
+// study mode
+// accordion
+const accordionIcin = document.querySelectorAll(
+  ".course-section .fa-chevron-down"
+);
+accordionIcin.forEach((item) =>
+  item.addEventListener("click", accordionToggle)
+);
+function accordionToggle(event) {
+  const icon = event.target;
+  const courseSection = icon.parentElement.parentElement;
+  const panelGroup = courseSection.querySelector(".panel-group");
+  const height = window.getComputedStyle(panelGroup).getPropertyValue("height");
+  if (height === "0px") {
+    panelGroup.style.height = "auto";
+    panelGroup.style.transform = "scaleY(1)";
+    icon.style.transform = "rotate(180deg)";
+  } else {
+    panelGroup.style.height = "0";
+    panelGroup.style.transform = "scaleY(0)";
+    icon.style.transform = "rotate(0)";
+  }
+}
+// accordion
