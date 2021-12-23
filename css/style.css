@@ -985,14 +985,10 @@ body {
   align-items: flex-start;
   padding: 0 5rem;
 }
-.course-row.fixed {
-  flex-direction: column !important;
-}
 .course-info {
   width: 60%;
   padding: 6rem 4rem;
   background-color: transparent;
-  position: relative;
 }
 .course-info .pic-course {
   width: 100%;
