@@ -1217,6 +1217,9 @@ body {
   border: 1px solid #e9ecef;
   border-radius: 3px;
 }
+.course-section i {
+  cursor: pointer;
+}
 .cousrse-section-title {
   margin: 0;
   padding: 18px 10px;

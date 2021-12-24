@@ -329,10 +329,10 @@ studyModeBtn.addEventListener("click", function () {
 });
 // study mode
 // accordion
-const accordionIcin = document.querySelectorAll(
+const accordionIcon = document.querySelectorAll(
   ".course-section .fa-chevron-down"
 );
-accordionIcin.forEach((item) =>
+accordionIcon.forEach((item) =>
   item.addEventListener("click", accordionToggle)
 );
 function accordionToggle(event) {
