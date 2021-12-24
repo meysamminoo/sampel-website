@@ -579,9 +579,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
-.video-btn:hover,
-.add-to-card-btn:hover {
+.video-btn > i:hover,
+.add-to-card-btn > i:hover {
   background-color: var(--white);
   color: var(--font-color);
 }

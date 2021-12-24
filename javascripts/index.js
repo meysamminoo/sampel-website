@@ -147,7 +147,6 @@ function addSearchSpeech() {
       .map((result) => result[0])
       .map((result) => result.transcript)
       .join("");
-    console.log(transcript);
     if (e.results[0].isFinal) {
       searchInput.value = transcript;
     }
@@ -347,12 +346,10 @@ let commentWidth = window
   .getComputedStyle(comments[0])
   .getPropertyValue("width");
 commentWidth = Number(commentWidth.match(/\d+/));
-console.log(commentWidth);
 
-// todo:
+// todo: dots for move brtween user comment slide
 function sliderComment(e) {
   let position = e.target.getAttribute("position");
-  console.log(position);
   commentContainer.style.transform = `translateX(-${
     commentWidth * position
   }px)`;
