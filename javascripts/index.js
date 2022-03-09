@@ -192,7 +192,7 @@ const dayElement = document.getElementById("days");
 const hourElement = document.getElementById("hours");
 const minuteElement = document.getElementById("minutes");
 const secondElement = document.getElementById("seconds");
-const publishDate = "10 feb 2022";
+const publishDate = "10 may 2022";
 function coundown() {
   const newPublishDate = new Date(publishDate);
   const currentDate = new Date();
